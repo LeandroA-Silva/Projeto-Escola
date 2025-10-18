@@ -1,3 +1,4 @@
+using mf_dev_backend_2025.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace mf_dev_backend_2025
@@ -10,7 +11,7 @@ namespace mf_dev_backend_2025
 
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            builder.Services.AddDbContext<Models.AppDbContext>(options =>
+            builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
