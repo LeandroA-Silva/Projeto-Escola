@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace mf_dev_backend_2025
 {
     public class Program
@@ -7,6 +9,9 @@ namespace mf_dev_backend_2025
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            builder.Services.AddDbContext<Models.AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
